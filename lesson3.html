@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Page</title>
+	<meta charset="UTF-8">
+</head>
+
+<body>
+	<input type="text" placeholder="Номер телефона" id="phoneNumber">
+	<input type="text" placeholder="Email" id="email">
+	<input type="text" placeholder="Серия и номер паспорта" id="passport">
+
+
+	<script>
+		//task 1
+		var src1 = "Существует множество цветов таких, как #FBFDGV либо #GHERTY. Но нужно знать и их значения, например, #QWERTY - это левый, #YUIOPA - правый. Так же существуют и 3-значные цвета, такие как #CRE, #TCE, #NBV"
+		console.log(src1.match(/#\w+/ig));
+
+		//task 2
+		var str2 = "1.5 0 12. 123.4 -2 -56.3";
+		console.log(str2.match(/\d+[.0-9]+/gi));
+
+		//task 3
+		var str3 = "В вашем билете указано 3:50 и 23:15, но у нас написано 3-50 и 23-15";
+		console.log(str3.match(/\d+[-:]\d+/gi));
+
+		//task 5
+		var phoneNumber = document.getElementById("phoneNumber");
+		var email = document.getElementById("email");
+		var passport = document.getElementById("passport");
+
+		// /\D\(\D{3}\)-\D{3}-\D{2}-\D{2}/gi
+
+		var phoneNumberRule = ["(", ")", "-", "-", "-"];
+
+		console.log(phoneNumber.value);
+		phoneNumber.addEventListener("keypress", function () {
+			if (phoneNumber.value.match(/\D/gi) == phoneNumberRule) {
+				phoneNumber.style.color = "green";
+				console.log(phoneNumber.value.match(/\d/gi));
+			} else {
+				phoneNumber.style.color = "red";
+				console.log(phoneNumber.value.match(/\D/gi));
+			}
+		})
+	</script>
+</body>
+
+</html>
